@@ -39,6 +39,7 @@ export default async function RootLayout({ children }) {
             <header>
               <nav>
                 <Link href="/">Home</Link>
+                <Link href="/about">About</Link>
                 <Link href="/posts">Posts</Link>
                 {result.rows.map((profile) => (
                   <div key={profile.id}>
