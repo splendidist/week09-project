@@ -1,4 +1,4 @@
-// import { Inter } from "next/font/google";
+import { Itim } from "next/font/google";
 import {
   ClerkProvider,
   SignInButton,
@@ -10,8 +10,9 @@ import "./globals.css";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
+import ProfileForm from "./components/ProfileForm";
 
-// const inter = Inter({ subsets: ["latin"] });
+const itim = Itim({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "Create Next App",
@@ -24,35 +25,44 @@ export default async function RootLayout({ children }) {
   const result = await db.query(
     `SELECT * FROM profiles WHERE clerk_id = '${userId}'`
   );
-  console.log(result);
 
   if (result.rowCount === 0 && userId) {
     await db.query(`INSERT INTO profiles (clerk_id) VALUES ('${userId}')`);
   }
+
+  const hasUsername = result.rows[0]?.username !== null ? true : false;
   return (
     <ClerkProvider>
       <html lang="en">
         <body>
-          <header>
-            <nav>
-              <Link href="/">Home</Link>
-              <Link href="/posts">Posts</Link>
-              {result.rows.map((profile) => (
-                <div key={profile.id}>
-                  <Link href={`/user/${profile.id}`} key={profile.id}>
-                    My Profile
-                  </Link>
-                </div>
-              ))}
-            </nav>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header>
-          <main>{children}</main>
+          <div>
+            <header>
+              <nav>
+                <Link href="/">Home</Link>
+                <Link href="/posts">Posts</Link>
+                {result.rows.map((profile) => (
+                  <div key={profile.id}>
+                    <Link href={`/user/${profile.id}`} key={profile.id}>
+                      My Profile
+                    </Link>
+                  </div>
+                ))}
+              </nav>
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </header>
+            <main>
+              <SignedOut>{children}</SignedOut>
+              <SignedIn>
+                {hasUsername && children}
+                {!hasUsername && <ProfileForm />}
+              </SignedIn>
+            </main>
+          </div>
         </body>
       </html>
     </ClerkProvider>

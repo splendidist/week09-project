@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-// import "./Dialog.css";
 
 export default function DialogComponent() {
   return (

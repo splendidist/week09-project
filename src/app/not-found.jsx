@@ -1,12 +1,10 @@
-"use client";
 import Link from "next/link";
 
-export default function Error({ error }) {
+export default function NotFound() {
   return (
     <html>
       <body>
-        <h2>Oh no! That user doesn&apos;t exist!</h2>
-        <p>Error: {error.message}</p>
+        <h2>Oops! That page doesn&apos;t exist!</h2>
         {/* Links to 'home page' aka all posts */}
         <Link href="/posts">Return Home</Link>
       </body>

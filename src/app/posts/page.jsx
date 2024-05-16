@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 
 export default async function Posts() {
   const { userId } = auth();
@@ -24,6 +25,7 @@ export default async function Posts() {
     await db.query(
       `INSERT INTO friendposts (profile_id, content) VALUES (${profileId},'${content}')`
     );
+    revalidatePath("/");
   }
 
   return (
@@ -47,7 +49,7 @@ export default async function Posts() {
         {posts.rows.map((post) => {
           return (
             <div key={post.id}>
-              <h4>{post.username}username:</h4>
+              <h4>{post.username}:</h4>
               <p>{post.content}</p>
             </div>
           );
