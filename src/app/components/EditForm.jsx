@@ -21,25 +21,56 @@ export default function EditForm() {
 
   return (
     <div>
-      <h2>Edit your Profile</h2>
-      <form action={handleEditProfile}>
-        <fieldset>
-          <label htmlFor="username">Username</label>
-          <input name="username" placeholder="username" required />
+      <h2 className="p-3 text-white text-xl text-center">Edit your Profile</h2>
+      <form
+        className="bg-red-200 rounded-md p-2 flex flex-col items-end"
+        action={handleEditProfile}
+      >
+        <fieldset className="mb-2">
+          <label className="p-3" htmlFor="username">
+            User
+          </label>
+          <input
+            className="p-1"
+            name="username"
+            placeholder="Username"
+            required
+          />
         </fieldset>
-        <fieldset>
-          <label htmlFor="location">Location</label>
-          <input name="location" placeholder="Location" required />
+        <fieldset className="mb-2">
+          <label className="p-3" htmlFor="location">
+            Location
+          </label>
+          <input
+            className="p-1"
+            name="location"
+            placeholder="Location"
+            required
+          />
         </fieldset>
-        <fieldset>
-          <label htmlFor="era">Favourite Era</label>
-          <input name="era" placeholder="Favourite Era" required />
+        <fieldset className="mb-2">
+          <label className="p-3" htmlFor="era">
+            Fave Era
+          </label>
+          <input
+            className="p-1"
+            name="era"
+            placeholder="Favourite Era"
+            required
+          />
         </fieldset>
-        <fieldset>
-          <label htmlFor="bio">Bio</label>
-          <input name="bio" placeholder="Bio" required />
+        <fieldset className="mb-2">
+          <label className="p-3" htmlFor="bio">
+            Bio
+          </label>
+          <input className="p-1" name="bio" placeholder="Bio" required />
         </fieldset>
-        <button type="submit">Update</button>
+        <button
+          className="self-center uppercase px-3 py-1 m-2 rounded-full bg-red-100 cursor-pointer hover:bg-white hover:scale-110 active:scale-100"
+          type="submit"
+        >
+          Update
+        </button>
       </form>
     </div>
   );

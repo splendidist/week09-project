@@ -4,3 +4,23 @@
 .AccordionTrigger[data-state="open"] > .AccordionChevron {
   transform: rotate(180deg);
 }
+
+.AccordionRoot {
+  background-color: white;
+  width: 80vw;
+}
+
+.AccordionItem {
+  border: 5px solid #fecaca;
+}
+
+.AccordionTrigger {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.AccordionContent {
+  border-top: 3px dashed lightgrey;
+  padding: 10px;
+}

@@ -5,7 +5,7 @@ import "./Accordian.css";
 
 export default function AccordianComp() {
   return (
-    <Accordion.Root collapsible>
+    <Accordion.Root className="AccordionRoot" collapsible>
       <Accordion.Item className="AccordionItem" value="item-1">
         <Accordion.Trigger className="AccordionTrigger">
           <span>Question?</span>
@@ -13,7 +13,9 @@ export default function AccordianComp() {
           <ChevronDownIcon className="AccordionChevron" aria-hidden />
         </Accordion.Trigger>
 
-        <Accordion.Content>Answer</Accordion.Content>
+        <Accordion.Content className="AccordionContent">
+          Answer
+        </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item className="AccordionItem" value="item-2">
         <Accordion.Trigger className="AccordionTrigger">
@@ -21,7 +23,9 @@ export default function AccordianComp() {
           <ChevronDownIcon className="AccordionChevron" aria-hidden />
         </Accordion.Trigger>
 
-        <Accordion.Content>Answer</Accordion.Content>
+        <Accordion.Content className="AccordionContent">
+          Answer
+        </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item className="AccordionItem" value="item-3">
         <Accordion.Trigger className="AccordionTrigger">
@@ -29,7 +33,9 @@ export default function AccordianComp() {
           <ChevronDownIcon className="AccordionChevron" aria-hidden />
         </Accordion.Trigger>
 
-        <Accordion.Content>Answer</Accordion.Content>
+        <Accordion.Content className="AccordionContent">
+          Answer
+        </Accordion.Content>
       </Accordion.Item>
     </Accordion.Root>
   );

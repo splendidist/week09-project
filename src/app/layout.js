@@ -34,13 +34,10 @@ export default async function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
-          <div>
+        <body className={itim.className}>
+          <div className="bg-rose-300 min-h-screen p-3">
             <header>
-              <nav>
-                <Link href="/">Home</Link>
-                <Link href="/about">About</Link>
-                <Link href="/posts">Posts</Link>
+              {/* <nav>
                 {result.rows.map((profile) => (
                   <div key={profile.id}>
                     <Link href={`/user/${profile.id}`} key={profile.id}>
@@ -48,10 +45,8 @@ export default async function RootLayout({ children }) {
                     </Link>
                   </div>
                 ))}
-              </nav>
-              <SignedOut>
-                <SignInButton />
-              </SignedOut>
+              </nav> */}
+              <SignedOut>{/* <SignInButton /> */}</SignedOut>
               <SignedIn>
                 <UserButton />
               </SignedIn>
