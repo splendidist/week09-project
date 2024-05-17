@@ -9,6 +9,7 @@ export default async function Posts() {
 
   const posts = await db.query(`SELECT 
   friendposts.id, 
+  friendposts.profile_id, 
   friendposts.content, 
   profiles.username 
   FROM friendposts 
@@ -95,7 +96,9 @@ export default async function Posts() {
               key={post.id}
               className="p-2 m-2 bg-white border-8 rounded border-red-200"
             >
-              <h4>{post.username}:</h4>
+              <Link href={`/user/${post.profile_id}`} key={post.id}>
+                {post.username}:
+              </Link>
               <p>{post.content}</p>
             </div>
           );

@@ -1,15 +1,14 @@
 import { Itim } from "next/font/google";
 import {
   ClerkProvider,
-  SignInButton,
+  // SignInButton,
   SignedIn,
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
 import "./globals.css";
 import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs/server";
-import Link from "next/link";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import ProfileForm from "./components/ProfileForm";
 
 const itim = Itim({ subsets: ["latin"], weight: "400" });
@@ -21,6 +20,8 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const { userId } = auth();
+  const user = await currentUser();
+  // console.log(user.imageUrl);
 
   const result = await db.query(
     `SELECT * FROM profiles WHERE clerk_id = '${userId}'`
@@ -37,16 +38,6 @@ export default async function RootLayout({ children }) {
         <body className={itim.className}>
           <div className="bg-rose-300 min-h-screen p-3">
             <header>
-              {/* <nav>
-                {result.rows.map((profile) => (
-                  <div key={profile.id}>
-                    <Link href={`/user/${profile.id}`} key={profile.id}>
-                      My Profile
-                    </Link>
-                  </div>
-                ))}
-              </nav> */}
-              <SignedOut>{/* <SignInButton /> */}</SignedOut>
               <SignedIn>
                 <UserButton />
               </SignedIn>

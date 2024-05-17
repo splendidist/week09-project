@@ -1,9 +1,12 @@
 import EditForm from "@/app/components/EditForm";
 import { db } from "@/lib/db";
+import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
-Link;
 
 export default async function Profile({ params }) {
+  const { userId } = auth();
+  console.log(userId);
+
   const posts = await db.query(
     `SELECT * FROM friendposts WHERE profile_id = '${params.id}'`
   );
@@ -14,6 +17,13 @@ export default async function Profile({ params }) {
 
   const [profile] = profiles.rows;
 
+  const result = await db.query(
+    `SELECT * FROM profiles WHERE clerk_id = '${userId}'`
+  );
+  const profileId = result.rows[0].id;
+  // console.log(profileId);
+  // console.log(params.id);
+  const currentUser = profileId == params.id ? true : false;
   return (
     <div className="flex flex-col items-center">
       <h2 className="capitalize p-3 text-white text-3xl">
@@ -40,7 +50,7 @@ export default async function Profile({ params }) {
         </h3>
       </div>
 
-      <EditForm />
+      {currentUser && <EditForm />}
       <h4 className="p-3 text-white text-xl text-center">My Posts</h4>
       <div className="posts flex flex-col">
         {posts.rows.map((post) => (

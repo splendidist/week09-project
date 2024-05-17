@@ -17,10 +17,13 @@
 .AccordionTrigger {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px;
+  width: 100%;
 }
 
 .AccordionContent {
   border-top: 3px dashed lightgrey;
   padding: 10px;
+  text-align: center;
 }

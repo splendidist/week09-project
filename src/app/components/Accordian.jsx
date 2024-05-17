@@ -29,12 +29,13 @@ export default function AccordianComp() {
       </Accordion.Item>
       <Accordion.Item className="AccordionItem" value="item-3">
         <Accordion.Trigger className="AccordionTrigger">
-          <span>Question?</span>
+          <span>Who made this app?</span>
           <ChevronDownIcon className="AccordionChevron" aria-hidden />
         </Accordion.Trigger>
 
         <Accordion.Content className="AccordionContent">
-          Answer
+          It&apos;s me! Hi! You can find some of my other projects here:
+          ✩₊˚.⋆☾⋆⁺₊✧ https://github.com/splendidist ✩₊˚.⋆☾⋆⁺₊✧
         </Accordion.Content>
       </Accordion.Item>
     </Accordion.Root>
