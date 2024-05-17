@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+//Meta Data
+export const metadata = {
+  title: "Make The Friends | Not Found",
+  description: "This page is not found, return home",
+};
+
 export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">

@@ -1,6 +1,11 @@
 import Link from "next/link";
 import AccordianComp from "../components/Accordian";
 
+export const metadata = {
+  title: "Make The Friends | About",
+  description: "Find out information about the Make The Friends App",
+};
+
 export default function About() {
   return (
     <div className="flex flex-col items-center">

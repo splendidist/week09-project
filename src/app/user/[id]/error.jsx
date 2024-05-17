@@ -2,6 +2,11 @@
 import Link from "next/link";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 
+export const metadata = {
+  title: "Make The Friends |Error",
+  description: "An error occurred, return home or sign in",
+};
+
 export default function Error({ error }) {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
