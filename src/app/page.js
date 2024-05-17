@@ -10,15 +10,10 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <Image
-        src="/logo-mobile.png"
-        alt="make the friends logo"
-        width="300"
-        height="300"
-      />
+    <div className="flex flex-col items-center justify-center h-full">
+      <Image src="/laptop-bg.svg" alt="make the friends logo" fill />
       <Link
-        className="uppercase px-3 py-1 mt-5 rounded-full bg-red-100 cursor-pointer hover:bg-rose-200 hover:scale-110 active:scale-100"
+        className="absolute top-3/4 uppercase px-3 py-1 mt-5 rounded-full bg-red-100 cursor-pointer hover:bg-rose-200 hover:scale-110 active:scale-100"
         href="/posts"
       >
         Enter

@@ -42,6 +42,7 @@ export default async function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
+        <link rel="icon" href="letter-m.png" sizes="any" />
         <body className={itim.className}>
           <div className="bg-rose-300 min-h-screen p-3">
             <main>
