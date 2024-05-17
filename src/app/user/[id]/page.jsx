@@ -5,7 +5,6 @@ import Link from "next/link";
 
 export default async function Profile({ params }) {
   const { userId } = auth();
-  console.log(userId);
 
   const posts = await db.query(
     `SELECT * FROM friendposts WHERE profile_id = '${params.id}'`
@@ -20,10 +19,10 @@ export default async function Profile({ params }) {
   const result = await db.query(
     `SELECT * FROM profiles WHERE clerk_id = '${userId}'`
   );
+
   const profileId = result.rows[0].id;
-  // console.log(profileId);
-  // console.log(params.id);
   const currentUser = profileId == params.id ? true : false;
+
   return (
     <div className="flex flex-col items-center">
       <h2 className="capitalize p-3 text-white text-3xl">

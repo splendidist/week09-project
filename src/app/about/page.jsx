@@ -1,6 +1,5 @@
 import Link from "next/link";
 import AccordianComp from "../components/Accordian";
-Link;
 
 export default function About() {
   return (
