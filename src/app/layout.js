@@ -33,12 +33,12 @@ export default async function RootLayout({ children }) {
     );
 
   //INSERT new user if user doesn't exist
-  if (result.rowCount === 0 && userId) {
+  if (result.rowCount === 0 && userId !== null) {
     await db.query(`INSERT INTO profiles (clerk_id) VALUES ('${userId}')`);
   }
 
-  //If user show page, else show form
-  const hasUsername = result.rows[0]?.username !== null ? true : false;
+  //If user, show page, else show form
+  const hasUsername = result.rows[0]?.username != null ? true : false;
   return (
     <ClerkProvider>
       <html lang="en">

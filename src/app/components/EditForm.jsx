@@ -31,7 +31,7 @@ export default function EditForm() {
             User
           </label>
           <input
-            className="p-1"
+            className="w-48 p-1"
             name="username"
             placeholder="Username"
             required
@@ -42,7 +42,7 @@ export default function EditForm() {
             Location
           </label>
           <input
-            className="p-1"
+            className="w-48 p-1"
             name="location"
             placeholder="Location"
             required
@@ -52,18 +52,34 @@ export default function EditForm() {
           <label className="p-3" htmlFor="era">
             Fave Era
           </label>
-          <input
-            className="p-1"
+          <select
+            className="w-48 p-1"
             name="era"
             placeholder="Favourite Era"
             required
-          />
+          >
+            {" "}
+            <option value="" disabled selected>
+              Favourite Era
+            </option>
+            <option value="debut">Debut</option>
+            <option value="fearless">Fearless</option>
+            <option value="Speak Now">Speak Now</option>
+            <option value="Red">Red</option>
+            <option value="1989">1989</option>
+            <option value="Reputation">Reputation</option>
+            <option value="Lover">Lover</option>
+            <option value="Folklore">Folklore</option>
+            <option value="Evermore">Evermore</option>
+            <option value="Midnights">Midnights</option>
+            <option value="=TTPD">TTPD</option>
+          </select>
         </fieldset>
         <fieldset className="mb-2">
           <label className="p-3" htmlFor="bio">
             Bio
           </label>
-          <input className="p-1" name="bio" placeholder="Bio" required />
+          <input className="w-48 p-1" name="bio" placeholder="Bio" required />
         </fieldset>
         <button
           className="self-center uppercase px-3 py-1 m-2 rounded-full bg-red-100 cursor-pointer hover:bg-white hover:scale-110 active:scale-100"

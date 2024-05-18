@@ -48,24 +48,24 @@ export default async function Profile({ params }) {
       >
         Return Home
       </Link>
-      <div className="text-center container m-auto grid grid-cols-2">
-        <h3 className="m-1 px-3 py-1 mb-3 rounded-full bg-red-100">
+      <div className="text-center container m-auto grid grid-cols-3 justify-items-center">
+        <h3 className="m-1 px-3 py-1 mb-3 rounded-full bg-red-100 w-26 md:w-40">
           {profile.username}
         </h3>
-        <h3 className="m-1 px-3 py-1 mb-3 rounded-full bg-red-100">
+        <h3 className="m-1 px-3 py-1 mb-3 rounded-full bg-red-100 w-26 md:w-40">
           {profile.user_location}
         </h3>
-        <h3 className="m-1 px-3 py-1 mb-3 rounded-full bg-red-100">
+        <h3 className="m-1 px-3 py-1 mb-3 rounded-full bg-red-100 w-26 md:w-40">
           {profile.era}
         </h3>
-        <h3 className="m-1 px-3 py-1 mb-3 rounded-full bg-red-100">
-          {profile.bio}
-        </h3>
       </div>
+      <h3 className=" text-center m-1 px-3 py-1 mb-3 rounded-full bg-red-100 w-full lg:w-1/2">
+        {profile.bio}
+      </h3>
 
       {currentUser && <EditForm />}
       <h4 className="p-3 text-white text-xl text-center">My Posts</h4>
-      <div className="posts flex flex-col">
+      <div className="posts flex flex-col w-4/5  md:w-3/4 lg:w-1/2">
         {posts.rows.map((post) => (
           <div
             className="p-2 m-2 bg-white border-8 rounded border-red-200"

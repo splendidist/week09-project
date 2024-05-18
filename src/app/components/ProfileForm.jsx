@@ -20,26 +20,75 @@ export default function ProfileForm() {
   }
 
   return (
-    <div>
-      <h2>Create your Profile</h2>
-      <form action={handleUpdateProfile}>
-        <fieldset>
-          <label htmlFor="username">Username</label>
-          <input name="username" placeholder="username" required />
+    <div className="h-screen flex flex-col items-center justify-center">
+      <h2 className="p-3 text-white text-xl text-center">
+        Create your Profile
+      </h2>
+      <form
+        className="bg-red-200 rounded-md p-2 flex flex-col items-end"
+        action={handleUpdateProfile}
+      >
+        <fieldset className="mb-2">
+          <label className="p-3" htmlFor="username">
+            Username
+          </label>
+          <input
+            className="w-48 p-1"
+            name="username"
+            placeholder="username"
+            required
+          />
         </fieldset>
-        <fieldset>
-          <label htmlFor="location">Location</label>
-          <input name="location" placeholder="Location" required />
+        <fieldset className="mb-2">
+          <label className="p-3" htmlFor="location">
+            Location
+          </label>
+          <input
+            className="w-48 p-1"
+            name="location"
+            placeholder="Location"
+            required
+          />
         </fieldset>
-        <fieldset>
-          <label htmlFor="era">Favourite Era</label>
-          <input name="era" placeholder="Favourite Era" required />
+        <fieldset className="mb-2">
+          <label className="p-3" htmlFor="era">
+            Fave Era
+          </label>
+          <select
+            className="w-48 p-1"
+            name="era"
+            placeholder="Favourite Era"
+            required
+          >
+            {" "}
+            <option value="" disabled selected>
+              Favourite Era
+            </option>
+            <option value="debut">Debut</option>
+            <option value="fearless">Fearless</option>
+            <option value="Speak Now">Speak Now</option>
+            <option value="Red">Red</option>
+            <option value="1989">1989</option>
+            <option value="Reputation">Reputation</option>
+            <option value="Lover">Lover</option>
+            <option value="Folklore">Folklore</option>
+            <option value="Evermore">Evermore</option>
+            <option value="Midnights">Midnights</option>
+            <option value="=TTPD">TTPD</option>
+          </select>
         </fieldset>
-        <fieldset>
-          <label htmlFor="bio">Bio</label>
-          <input name="bio" placeholder="Bio" required />
+        <fieldset className="mb-2">
+          <label className="p-3" htmlFor="bio">
+            Bio
+          </label>
+          <input className="w-48 p-1" name="bio" placeholder="Bio" required />
         </fieldset>
-        <button type="submit">Create</button>
+        <button
+          className="self-center uppercase px-3 py-1 m-2 rounded-full bg-red-100 cursor-pointer hover:bg-white hover:scale-110 active:scale-100"
+          type="submit"
+        >
+          Create
+        </button>
       </form>
     </div>
   );

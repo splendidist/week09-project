@@ -4,6 +4,7 @@ import {
   SignedOut,
   SignInButton,
   SignOutButton,
+  SignUpButton,
 } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
@@ -53,10 +54,15 @@ export default async function Posts() {
 
   return (
     <div>
-      <h2 className="p-3 text-white text-3xl text-center">Make The Friends</h2>
+      <h2 className="p-3 text-white  text-center sm:text-3xl md:text-4xl lg:text-5xl">
+        Make The Friends
+      </h2>
       <SignedIn>
         {result.rows.map((profile) => (
-          <div className="flex justify-around" key={profile.id}>
+          <div
+            className="flex justify-around md:mx-5 lg:mx-40"
+            key={profile.id}
+          >
             <Link
               className="flex items-center text-center uppercase px-3 rounded-full bg-red-100 cursor-pointer hover:bg-rose-200 hover:scale-110 active:scale-100 p-1 m-1"
               href={`/user/${profile.id}`}
@@ -75,20 +81,20 @@ export default async function Posts() {
           </div>
         ))}
 
-        <form className="flex flex-col" action={handleAddPost}>
+        <form className="flex flex-col items-center" action={handleAddPost}>
           <label
             htmlFor="content"
-            className="m-3 text-center text-white text-xl"
+            className="m-3 text-center text-white sm:text-xl md:text-2xl"
           >
             Make a new post...
           </label>
           <textarea
-            className="m-2 p-1 border-8 rounded border-red-200 h-44"
+            className=" p-1 border-8 rounded border-red-200 h-44 m-2 w-4/5 md:w-3/4 lg:w-1/2"
             name="content"
             placeholder="✨ What's up?"
             required
           />
-          <button className="self-center uppercase px-4 py-1 rounded-full bg-red-100 cursor-pointer hover:bg-rose-200 hover:scale-110 active:scale-100 m-2">
+          <button className="self-center uppercase px-4 py-1 rounded-full bg-red-100 cursor-pointer hover:bg-rose-200 hover:scale-110 active:scale-100 mt-2 mb-6">
             Post
           </button>
         </form>
@@ -103,6 +109,7 @@ export default async function Posts() {
           >
             About
           </Link>{" "}
+          <SignUpButton className="uppercase px-3 rounded-full bg-red-100 cursor-pointer hover:bg-rose-200 hover:scale-110 active:scale-100" />
           <SignInButton className="uppercase px-3 rounded-full bg-red-100 cursor-pointer hover:bg-rose-200 hover:scale-110 active:scale-100" />
         </div>
 
@@ -111,12 +118,12 @@ export default async function Posts() {
         </p>
       </SignedOut>
 
-      <div className="posts flex flex-col">
+      <div className="posts flex flex-col items-center">
         {posts.rows.map((post) => {
           return (
             <div
               key={post.id}
-              className="p-2 m-2 bg-white border-8 rounded border-red-200"
+              className="p-2 m-2 bg-white border-8 rounded border-red-200 w-4/5  md:w-3/4 lg:w-1/2"
             >
               <div className="flex items-center">
                 <Link

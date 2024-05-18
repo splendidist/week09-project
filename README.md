@@ -1,5 +1,7 @@
 ✨ https://week09-project-delta.vercel.app/posts ✨
 
+Next.JS | Clerk | Radix
+
 🎯 Please mention the requirements you met and which goals you achieved for this assignment.
 
 Planning
@@ -48,25 +50,49 @@ Future Additions
 
 🎯 Were there any requirements or goals that you were not quite able to achieve?
 
+Some personal goals I wanted to achieve were allowing the user to like a post, or follow another user.
+
 🎯 If so, could you please tell us what was it that you found difficult about these tasks?
 
-- wanting to use client components on the posts page
+I found making the profile form component difficult to work, and also I found a lot of the radix primitives difficult to use, as I don't fully understand where I can use them if they are client components and most of my page functions use "use server"
 
 ✨ What went really well and what could have gone better?
 
 What Went Well
 
+- Using tailwind!!
+- Making the app responsive
+- Using the supabase database and clerk
+
 What Could Have Gone Better
+
+- knowing how to use junction tables better, as I want the user to be able to like posts and follow users
 
 ✨ Detailing useful external sources that helped you complete the assignment (e.g Youtube tutorials).
 
 External Sources
 
+https://stackoverflow.com/questions/76248386/clerk-fails-to-get-the-publishable-key-from-the-environment-variables-in-next-js - .env.local needs to be in root directory
+https://nextjs.org/docs/pages/api-reference/components/font - using a google font
+
+lots of tailwind css
+
+https://tailwindcss.com/docs/height
+https://refine.dev/blog/tailwind-grid/#basic-tailwind-grid-example
+https://tailwindcomponents.com/cheatsheet/
+https://tailwindcsscheatsheet.com/
+https://tailscan.com/colors
+https://tailwindcss.com/docs/responsive-design
+
 ✨ Describing errors or bugs you encountered while completing your assignment.
 
 Errors/Bugs
 
+- I had a bug where the profile form component wouldn't appear when the user first logs in, and the username was returning as 'undefined' in the terminal, and only when it returned as null would the form appear? i removed one of the = signs as I read this makes it check for null or undefined and this seems to have worked - const hasUsername = result.rows[0]?.username != null ? true : false;
+
 ✨ Requesting feedback about a specific part of your submission.
+
+Could I have some feedback about the bug I had, and also about the keys for the maps as I'm not entirely sure how to make sure all the children don't have the same key id.
 
 Sources :
 mirrorball gif - https://giphy.com/handmadebyleeza

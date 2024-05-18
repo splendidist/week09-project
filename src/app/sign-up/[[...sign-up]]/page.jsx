@@ -6,5 +6,9 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <SignUp path="/sign-up" />;
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <SignUp path="/sign-up" />
+    </div>
+  );
 }
